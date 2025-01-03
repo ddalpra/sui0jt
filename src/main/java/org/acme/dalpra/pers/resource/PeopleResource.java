@@ -7,5 +7,4 @@ import org.acme.dalpra.pers.repos.PersonRepository;
 import java.util.UUID;
 
 public interface PeopleResource extends PanacheRepositoryResource<PersonRepository, Person, UUID> {
-
 }
