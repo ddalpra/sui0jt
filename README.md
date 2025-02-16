@@ -58,3 +58,23 @@ If you want to learn more about building native executables, please consult <htt
 - REST Jackson ([guide](https://quarkus.io/guides/rest#json-serialisation)): Jackson serialization support for Quarkus REST. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it
 - REST resources for Hibernate Reactive with Panache ([guide](https://quarkus.io/guides/rest-data-panache)): Generate Jakarta REST resources for your Hibernate Reactive Panache entities and repositories
 - JDBC Driver - PostgreSQL ([guide](https://quarkus.io/guides/datasource)): Connect to the PostgreSQL database via JDBC
+
+## Docker/Podman Manual
+To publish the docker image you must have logged in as follows.
+```shell script
+podman login docker.io
+```
+
+To create the container for the application you need compile and package the application with maven.
+
+```shell script
+mvn clean compile package
+```
+
+In the second time you build the container in your machine.
+
+```shell script
+cp src/main/docker/Dockerfile.jvm
+podman build -f Dockerfile.jvm -t ddalpra86/sui0jt:1.0.0-alpha01
+podman push ddalpra86/sui0jt:1.0.0-alpha01
+```
